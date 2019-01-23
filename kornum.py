@@ -79,9 +79,20 @@ def convert(number, 수사="양수사", 한자어=True):
         raise TypeError('잘못된 자료형이에요 ㅜㅜ')
     
     if 한자어 == True:
-        pass
+        return _한자어(number)
     else:
-        pass
-        
+        return _고유어(number)
+
+def _한자어(hnum):
+    pass
+    
+def _고유어(gnum):
+    pass
+
+def _관형사(anum):
+    pass
+    
+def _명사(mnum):
+    pass
 
     # return [number, 수사, 한자어] - 테스트용
