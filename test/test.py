@@ -37,6 +37,7 @@ for i in range(0, len(list_01)):
         rtemp = list_01[-4:]
         for i in range(0, 4):
             itemp = rtemp.pop()
+            list_01.pop()
             if(itemp == ''):
                 list_02.append(itemp)   
             elif(itemp == '일'):
@@ -46,8 +47,6 @@ for i in range(0, len(list_01)):
                     list_02.append(큰_자릿수.get(i))
             else:
                 list_02.append(itemp + 큰_자릿수.get(i))
-        for i in range(0, 4):
-            list_01.pop()
 
 맅턴 = str()
 
