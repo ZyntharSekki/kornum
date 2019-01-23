@@ -84,4 +84,4 @@ def convert(number, 수사="양수사", 한자어=True):
         pass
         
 
-    # return [number, 수사, 한자어]
+    # return [number, 수사, 한자어] - 테스트용
