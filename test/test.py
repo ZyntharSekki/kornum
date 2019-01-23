@@ -19,34 +19,39 @@
 }
 
 a = str(input("입력바람: "))
-result = []
-b = []
+list_00 = []
+list_01 = []
+list_02 = []
 
 for i in a:
     for x in i:
-        b.append(x)
+        list_00.append(x)
 
-for i in b:
-    result.append(일의자리_한자어.get(int(i)))
+for i in list_00:
+    list_01.append(일의자리_한자어.get(int(i)))
 
-theresult = []
 
-for i in range(0, len(result)):
-    if len(result) >= 4:
-        rtemp = result[-4:]
+
+for i in range(0, len(list_01)):
+    if len(list_01) >= 4:
+        rtemp = list_01[-4:]
         for i in range(0, 4):
             itemp = rtemp.pop()
             if(itemp == ''):
-                theresult.append(itemp)   
+                list_02.append(itemp)   
             elif(itemp == '일'):
                 if i == 0:
-                    theresult.append(itemp)
+                    list_02.append(itemp)
                 else:
-                    theresult.append(큰_자릿수.get(i))
+                    list_02.append(큰_자릿수.get(i))
             else:
-                theresult.append(itemp + 큰_자릿수.get(i))
+                list_02.append(itemp + 큰_자릿수.get(i))
         for i in range(0, 4):
-            result.pop()
+            list_01.pop()
 
+맅턴 = str()
 
-print(theresult)
+for i in range(0, len(list_02)):
+    맅턴 = 맅턴 + list_02.pop()
+
+print(맅턴)
