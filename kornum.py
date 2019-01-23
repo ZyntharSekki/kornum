@@ -66,11 +66,22 @@
 }
 
 def convert(number, 수사="양수사", 한자어=True):
+    if 수사 not in 수사_종류:
+        raise NotImplementedError('없는 수사 종류에요 ㅜㅜ')
+
     if isinstance(number, (str, float)): #소수점 이하 읽기 추후 구현 예정
         number = int(number)
     if isinstance(number, (list, dict, tuple)):
         raise TypeError('잘못된 자료형이에요 ㅜㅜ')
-    if 수사 not in 수사_종류:
-        raise NotImplementedError('없는 수사 종류에요 ㅜㅜ')
+    if number >= 10000000000000000000000000000:
+        raise ValueError('너무 큰 수에요 ㅜㅜ')
+    if isinstance(한자어, bool) == False:
+        raise TypeError('잘못된 자료형이에요 ㅜㅜ')
+    
+    if 한자어 == True:
+        pass
+    else:
+        pass
+        
 
-    return [number, 수사, 한자어]
+    # return [number, 수사, 한자어]
