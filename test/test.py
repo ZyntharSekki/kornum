@@ -63,6 +63,8 @@ for i in range(0, len(list_02)):
     if ((i in 더큰_자릿수) == True):
         if list_02[i:i+4] == ['', '', '', '']:
             pass
+        elif list_02[i] == '일':
+            list_02[i] = 더큰_자릿수.get(i)
         else:
             list_02[i] = list_02[i] + 더큰_자릿수.get(i)
 
