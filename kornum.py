@@ -62,6 +62,7 @@
 }
 
 더큰_자릿수 = {
+    0 : "",
     4 : "만 ",
     8 : "억 ",
     12 : "조 ",
@@ -96,7 +97,7 @@ def convert(number, 수사="양수사", 한자어=True):
 ##########################################
 
 def _한자어(hnum):
-    return _구현(str(hnum)).rstrip()
+    return _구현(str(hnum))
 
 def _고유어(gnum):
     pass
@@ -112,49 +113,27 @@ def _명사(mnum):
 ##########################################
 
 def _구현(gnum):
-    list_00 = []
-    list_01 = []
-    list_02 = []
-
+    a = []
+    b = []
     for i in gnum:
         for x in i:
-            list_00.append(x)
+            a.append(x)
 
-    for i in list_00:
-        list_01.append(일의자리_한자어.get(int(i)))
+    fcounter = 0
+    gcounter = len(a) - 1
 
-    if ((len(list_01) % 4) != 0):
-        for ib in range(0, (4 - (len(list_01) % 4))):
-            list_01.insert(0, '')
+    for i in reversed(a):
+        b.append(일의자리_한자어.get(int(i)))
 
-    for i in range(0, int(len(list_01) / 4)):
-        rtemp = list_01[-4:]
-        rtemp1 = list_01[-4:]
-        for i2 in range(0, 4):
-            itemp = rtemp.pop()
-            list_01.pop()
-            if(itemp == ''):
-                list_02.append(itemp)   
-            elif(itemp == '일'):
-                if i2 == 0:
-                    list_02.append(itemp)
-                else:
-                    list_02.append(큰_자릿수.get(i2))
-            else:
-                list_02.append(itemp + 큰_자릿수.get(i2))
-        
-    for i in range(0, len(list_02)):
-        if ((i in 더큰_자릿수) == True):
-            if list_02[i:i+4] == ['', '', '', '']:
-                pass
-            elif list_02[i] == '일':
-                list_02[i] = 더큰_자릿수.get(i)
-            else:
-                list_02[i] = list_02[i] + 더큰_자릿수.get(i)
+        if (fcounter % 4 == 0) and (a[(gcounter - 3):(gcounter + 1)] != ['', '', '', '']):
+            b[fcounter] = b[fcounter] + 더큰_자릿수.get(fcounter)
+            b[fcounter].replace('일', '') # 추후에 if문 추가요망
+        elif ((fcounter % 4) != 0) and (b[fcounter] != ''):
+            b[fcounter] = b[fcounter] + 큰_자릿수.get(fcounter % 4)
 
-    리턴값 = str()
+        fcounter = fcounter + 1
+        gcounter = gcounter - 1
 
-    for i in range(0, len(list_02)):
-        리턴값 = 리턴값 + list_02.pop()
-    
-    return 리턴값
+    list.reverse(b)
+
+    return (''.join(b)).rstrip()
