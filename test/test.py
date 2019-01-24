@@ -39,24 +39,25 @@ for i in a:
 for i in list_00:
     list_01.append(일의자리_한자어.get(int(i)))
 
-for i in range(0, len(list_01)):
-    if len(list_01) >= 4:
-        rtemp = list_01[-4:]
-        rtemp1 = list_01[-4:]
-        for i2 in range(0, 4):
-            itemp = rtemp.pop()
-            list_01.pop()
-            if(itemp == ''):
-                list_02.append(itemp)   
-            elif(itemp == '일'):
-                if i2 == 0:
-                    list_02.append(itemp)
-                else:
-                    list_02.append(큰_자릿수.get(i2))
+if ((len(list_01) % 4) != 0):
+    for ib in range(0, (4 - (len(list_01) % 4))):
+        list_01.insert(0, '')
+
+for i in range(0, int(len(list_01) / 4)):
+    rtemp = list_01[-4:]
+    rtemp1 = list_01[-4:]
+    for i2 in range(0, 4):
+        itemp = rtemp.pop()
+        list_01.pop()
+        if(itemp == ''):
+            list_02.append(itemp)   
+        elif(itemp == '일'):
+            if i2 == 0:
+                list_02.append(itemp)
             else:
-                list_02.append(itemp + 큰_자릿수.get(i2))
-    else:
-        pass # 천으로 깔끔하게 안떨어지는 때 구현 추가요망
+                list_02.append(큰_자릿수.get(i2))
+        else:
+            list_02.append(itemp + 큰_자릿수.get(i2))
         
 for i in range(0, len(list_02)):
     if ((i in 더큰_자릿수) == True):
