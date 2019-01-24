@@ -82,12 +82,18 @@ def convert(number, 수사="양수사", 한자어=True):
         raise ValueError('너무 큰 수에요 ㅜㅜ')
     if isinstance(한자어, bool) == False:
         raise TypeError('잘못된 자료형이에요 ㅜㅜ')
-    
+
+    # return [number, 수사, 한자어] - 테스트용
+
     if 한자어 == True:
         return _한자어(number)
     else:
         pass
         # return _고유어(number)
+
+##########################################
+## 스위치(?)
+##########################################
 
 def _한자어(hnum):
     return _구현(str(hnum))
@@ -100,6 +106,10 @@ def _관형사(anum):
     
 def _명사(mnum):
     pass
+
+##########################################
+## 구현
+##########################################
 
 def _구현(gnum):
     list_00 = []
@@ -148,6 +158,3 @@ def _구현(gnum):
         리턴값 = 리턴값 + list_02.pop()
     
     return 리턴값
-    
-
-    # return [number, 수사, 한자어] - 테스트용
