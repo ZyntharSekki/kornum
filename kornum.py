@@ -96,7 +96,7 @@ def convert(number, 수사="양수사", 한자어=True):
 ##########################################
 
 def _한자어(hnum):
-    return _구현(str(hnum))
+    return _구현(str(hnum)).rstrip()
 
 def _고유어(gnum):
     pass
@@ -156,7 +156,5 @@ def _구현(gnum):
 
     for i in range(0, len(list_02)):
         리턴값 = 리턴값 + list_02.pop()
-    
-    리턴값.rstrip()
     
     return 리턴값
