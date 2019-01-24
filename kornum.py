@@ -157,4 +157,6 @@ def _구현(gnum):
     for i in range(0, len(list_02)):
         리턴값 = 리턴값 + list_02.pop()
     
+    리턴값.rstrip()
+    
     return 리턴값
