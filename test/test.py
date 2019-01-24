@@ -39,8 +39,6 @@ for i in a:
 for i in list_00:
     list_01.append(일의자리_한자어.get(int(i)))
 
-print(list_01)
-
 for i in range(0, len(list_01)):
     if len(list_01) >= 4:
         rtemp = list_01[-4:]
@@ -58,17 +56,14 @@ for i in range(0, len(list_01)):
             else:
                 list_02.append(itemp + 큰_자릿수.get(i2))
     else:
-        pass
+        pass # 천으로 깔끔하게 안떨어지는 때 구현 추가요망
         
 for i in range(0, len(list_02)):
-    print(i)
     if ((i in 더큰_자릿수) == True):
         if list_02[i:i+4] == ['', '', '', '']:
             pass
         else:
             list_02[i] = list_02[i] + 더큰_자릿수.get(i)
-
-print(list_02)
 
 맅턴 = str()
 
