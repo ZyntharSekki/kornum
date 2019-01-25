@@ -99,7 +99,7 @@ def convert(number, 수사="양수사", 한자어=True):
 def _한자어(hnum, 수사):
     if 수사 == "서수사" or 수사 == "서수사-명사":
         return '제' + _구현(str(hnum), 서수사여부 = True)
-    return _구현(str(hnum))
+    return _구현(str(hnum)).lstrip()
 
 def _고유어(gnum):
     pass
@@ -115,6 +115,14 @@ def _명사(mnum):
 ##########################################
 
 def _구현(gnum, 서수사여부=False):
+    negative = False
+
+    if int(gnum) == 0:
+        return '영'
+    elif int(gnum) < 0:
+        gnum = str(-int(gnum))
+        negative = True
+
     a = []
     for i in gnum:
         for x in i:
@@ -138,4 +146,4 @@ def _구현(gnum, 서수사여부=False):
         fcounter = fcounter + 1
         gcounter = gcounter - 1
 
-    return (''.join(a)).rstrip()
+    return (' 마이너스 ' if negative == True else '') + (''.join(a)).rstrip()
