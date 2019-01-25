@@ -1,6 +1,8 @@
 kornum
 ====
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 kornum은 숫자를 한국어 단어로 바꿔주는 모듈입니다.
 
 **개발중-한자어만 구현됨**
