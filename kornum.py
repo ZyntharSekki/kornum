@@ -114,7 +114,6 @@ def _명사(mnum):
 
 def _구현(gnum):
     a = []
-    b = []
     for i in gnum:
         for x in i:
             a.append(x)
@@ -123,17 +122,18 @@ def _구현(gnum):
     gcounter = len(a) - 1
 
     for i in reversed(a):
-        b.append(일의자리_한자어.get(int(i)))
+        a[gcounter] = (일의자리_한자어.get(int(i)))
 
-        if (fcounter % 4 == 0) and (a[(gcounter - 3):(gcounter + 1)] != ['', '', '', '']):
-            b[fcounter] = b[fcounter] + 더큰_자릿수.get(fcounter)
-            b[fcounter].replace('일', '') # 추후에 if문 추가요망
-        elif ((fcounter % 4) != 0) and (b[fcounter] != ''):
-            b[fcounter] = b[fcounter] + 큰_자릿수.get(fcounter % 4)
+        if (fcounter % 4 == 0) and (a[(gcounter - 3):(gcounter + 1)] != ['0', '0', '0', '']):
+            if (fcounter == 4) and (a[gcounter] == "일") and (fcounter == (len(a) - 1)): #추후에 and 뭐 true 넣기
+                a[gcounter] = ""
+            a[gcounter] = a[gcounter] + 더큰_자릿수.get(fcounter)
+        elif ((fcounter % 4) != 0) and (a[gcounter] != ''):
+            if a[gcounter] == "일":
+                a[gcounter] = ""
+            a[gcounter] = a[gcounter] + 큰_자릿수.get(fcounter % 4)
 
         fcounter = fcounter + 1
         gcounter = gcounter - 1
 
-    list.reverse(b)
-
-    return (''.join(b)).rstrip()
+    return (''.join(a)).rstrip()

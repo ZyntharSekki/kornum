@@ -28,24 +28,22 @@
     24 : "자 "
 }
 
-a = ['3', '0', '0', '0', '0', '0', '0']
+a = ['1', '3', '2', '0', '0', '0', '0', '0','0','0','0', '3','3','3','3']
 b = []
 
 fcounter = 0
 gcounter = len(a) - 1
 
 for i in reversed(a):
-    b.append(일의자리_한자어.get(int(i)))
+    a[gcounter] = (일의자리_한자어.get(int(i)))
 
-    if (fcounter % 4 == 0) and (a[(gcounter - 3):(gcounter + 1)] != ['', '', '', '']):
-        b[fcounter] = b[fcounter] + 더큰_자릿수.get(fcounter)
-        b[fcounter].replace('일', '') # 추후에 if문 추가요망
-    elif ((fcounter % 4) != 0) and (b[fcounter] != ''):
-        b[fcounter] = b[fcounter] + 큰_자릿수.get(fcounter % 4)
+    if (fcounter % 4 == 0) and (a[(gcounter - 3):(gcounter + 1)] != ['0', '0', '0', '']):
+        a[gcounter] = a[gcounter] + 더큰_자릿수.get(fcounter)
+        a[gcounter].replace('일', '') # 추후에 if문 추가요망
+    elif ((fcounter % 4) != 0) and (a[gcounter] != ''):
+        a[gcounter] = a[gcounter] + 큰_자릿수.get(fcounter % 4)
     
     fcounter = fcounter + 1
     gcounter = gcounter - 1
 
-list.reverse(b)
-
-print((''.join(b)).rstrip())
+print((''.join(a)).rstrip())
