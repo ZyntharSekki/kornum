@@ -48,8 +48,7 @@ def convert(number, 수사="양수사", 한자어=True):
     if 한자어 == True:
         return _한자어(number, 수사)
     else:
-        pass
-        # return _고유어(number)
+        return _고유어(number, 수사)
 
 ##########################################
 ## 스위치(?)
@@ -60,14 +59,8 @@ def _한자어(hnum, 수사):
         return '제' + _구현(str(hnum), 서수사여부 = True)
     return _구현(str(hnum)).lstrip()
 
-def _고유어(gnum):
-    pass
-
-def _관형사(anum):
-    pass
-    
-def _명사(mnum):
-    pass
+def _고유어(gnum, 수사):
+    return True
 
 ##########################################
 ## 구현
@@ -94,11 +87,11 @@ def _구현(gnum, 서수사여부=False):
         a[gcounter] = (일의자리_한자어.get(int(i)))
 
         if (fcounter % 4 == 0) and (a[(gcounter - 3):(gcounter + 1)] != ['0', '0', '0', '']):
-            if (fcounter == 4) and (a[gcounter] == "일") and (fcounter == (len(a) - 1)) and 서수사여부 == False: #추후에 and 뭐 true 넣기
+            if (fcounter == 4) and ((a[gcounter] == "일") or (a[gcounter] == "하나") or (a[gcounter] == "한")) and (fcounter == (len(a) - 1)) and 서수사여부 == False: #추후에 and 뭐 true 넣기
                 a[gcounter] = ""
             a[gcounter] = a[gcounter] + 더큰_자릿수.get(fcounter)
         elif ((fcounter % 4) != 0) and (a[gcounter] != ''):
-            if a[gcounter] == "일":
+            if ((a[gcounter] == "일") or (a[gcounter] == "하나") or (a[gcounter] == "한")):
                 a[gcounter] = ""
             a[gcounter] = a[gcounter] + 큰_자릿수.get(fcounter % 4)
 
