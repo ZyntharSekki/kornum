@@ -61,12 +61,13 @@ def _한자어(hnum, 수사):
 
 def _고유어(gnum, 수사):
     return True
+    #_구현(str(gnum), 고유어여부 = True).lstrip()
 
 ##########################################
 ## 구현
 ##########################################
 
-def _구현(gnum, 서수사여부=False):
+def _구현(gnum, 고유어여부 = False, 서수사여부 = False, 관형사및명사여부 = False):
     negative = False
 
     if int(gnum) == 0:
