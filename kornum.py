@@ -64,7 +64,9 @@ def _한자어(hnum, 수사):
     return _구현(str(hnum)).lstrip()
 
 def _고유어(gnum, 수사):
-    return True
+    if 수사 == "서수사" or 수사 == "서수사-명사":
+        return None
+    return _구현(str(gnum), 고유어여부 = True, 관형사및명사여부 = True if 수사 == '양수사-관형사' else False).lstrip()
     #_구현(str(gnum), 고유어여부 = True).lstrip()
 
 ##########################################
@@ -102,12 +104,15 @@ def _구현(gnum, 고유어여부 = False, 서수사여부 = False, 관형사및
 
         fcounter = fcounter + 1
         gcounter = gcounter - 1
-    '''
+    
     if (고유어여부 == True):
         if a[-1] in 일의자리_고유어:
-            pass
+            if 서수사여부 == False:
+                a[-1] = 일의자리_고유어.get(a[-1])[0 if 관형사및명사여부 == False else 1]
+            else:
+                pass
         if a[-2] in 십의자리_고유어:
             pass
-    '''
+    
     print(a)
     return (' 마이너스 ' if negative == True else '') + (''.join(a)).rstrip()
