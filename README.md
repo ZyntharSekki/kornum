@@ -50,5 +50,7 @@ kornum은 숫자를 한국어 단어로 바꿔주는 모듈입니다.
 MIT 라이선스
 
 # 기타
+코딩 초짜라다 구조가 많이 허접할 수 있습니다
+
 ## 제작 이유
 연습용 + [num2words](https://github.com/savoirfairelinux/num2words)의 한국어 모듈이 마음에 안 들었음
