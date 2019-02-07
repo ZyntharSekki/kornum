@@ -115,4 +115,4 @@ def _구현(gnum, 고유어여부 = False, 서수사여부 = False, 관형사및
             pass
     
     print(a)
-    return (' 마이너스 ' if negative == True else '') + (''.join(a)).rstrip()
+    return (' 마이너스 ' if negative == True else '') + (''.join(a)).rstrip() + ('째' if 서수사여부 == True else '')
