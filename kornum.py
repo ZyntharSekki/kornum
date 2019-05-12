@@ -73,7 +73,7 @@ def _한자어(hnum, 수사):
 
 def _고유어(gnum, 수사):
     if 수사 == "서수사" or 수사 == "서수사-명사":
-        return None
+        return None #고유어 서수사 구현시 꼭 고치기 바람!!!!!!!!
     return _구현(str(gnum), 고유어여부 = True, 관형사및명사여부 = True if 수사 == '양수사-관형사' else False).lstrip()
     #_구현(str(gnum), 고유어여부 = True).lstrip()
 
@@ -118,7 +118,7 @@ def _구현(gnum, 고유어여부 = False, 서수사여부 = False, 관형사및
             if 서수사여부 == False:
                 a[-1] = 일의자리_고유어.get(a[-1])[0 if 관형사및명사여부 == False else 1]
             else:
-                pass
+                pass #고유어 서수사 일의자리 구현부분!!!!!!!!
         if a[-2] in 십의자리_고유어:
             a[-2] = 십의자리_고유어.get(a[-2])
     
